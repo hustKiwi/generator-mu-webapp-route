@@ -6,16 +6,6 @@ var chalk = require('chalk');
 
 
 var MuWebappRouteGenerator = yeoman.generators.Base.extend({
-  init: function () {
-    this.pkg = require('../package.json');
-
-    this.on('end', function () {
-      if (!this.options['skip-install']) {
-        this.installDependencies();
-      }
-    });
-  },
-
   askFor: function () {
     var done = this.async();
 
@@ -26,30 +16,26 @@ var MuWebappRouteGenerator = yeoman.generators.Base.extend({
     this.log(chalk.magenta('You\'re using the fantastic MuWebappRoute generator.'));
 
     var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
+      name: 'routeName',
+      message: 'Which route do you want to create?'
     }];
 
     this.prompt(prompts, function (props) {
-      this.someOption = props.someOption;
+      this.routeName = props.routeName;
 
       done();
     }.bind(this));
   },
 
   app: function () {
-    this.mkdir('app');
-    this.mkdir('app/templates');
-
-    this.copy('_package.json', 'package.json');
-    this.copy('_bower.json', 'bower.json');
-  },
-
-  projectfiles: function () {
-    this.copy('editorconfig', '.editorconfig');
-    this.copy('jshintrc', '.jshintrc');
+    var routeName = this.routeName,
+        appPath = '../src/js/app/',
+        tmplPath = appPath + routeName + '/';
+    this.mkdir(tmplPath);
+    this.template('index.html', tmplPath + 'index.html');
+    this.template('module.coffee', appPath + 'module/' + routeName + '.coffee');
+    this.template('view.coffee', appPath + 'view/' + routeName + '.coffee');
+    this.copy('route.sass', '../src/css/page/' + routeName + '.sass');
   }
 });
 
