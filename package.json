@@ -1,6 +1,6 @@
 {
   "name": "generator-mu-webapp-route",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "mu-webapp框架使用的route自动生成脚手架",
   "license": "MIT",
   "main": "app/index.js",

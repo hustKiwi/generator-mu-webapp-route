@@ -30,7 +30,7 @@ var MuWebappRouteGenerator = yeoman.generators.Base.extend({
   app: function () {
     var routeName = this.routeName,
         appPath = '../src/js/app/',
-        tmplPath = appPath + routeName + '/';
+        tmplPath = appPath + 'template/' + routeName + '/';
     this.mkdir(tmplPath);
     this.template('index.html', tmplPath + 'index.html');
     this.template('module.coffee', appPath + 'module/' + routeName + '.coffee');
