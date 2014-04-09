@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - '0.10'
+before_install:
+  - currentfolder=${PWD##*/}
+  - if [ "$currentfolder" != 'generator-mu-webapp-route' ]; then cd .. && eval "mv $currentfolder generator-mu-webapp-route" && cd generator-mu-webapp-route; fi
+
