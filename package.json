@@ -1,10 +1,10 @@
 {
   "name": "generator-mu-webapp-route",
-  "version": "0.0.0",
-  "description": "Yeoman generator",
+  "version": "0.0.1",
+  "description": "mu-webapp框架使用的route自动生成脚手架",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "hustKiwi/generator-mu-webapp-route",
+  "repository": "https://github.com/hustKiwi/generator-mu-webapp-route.git",
   "author": {
     "name": "Kiwi",
     "email": "kiwi.sedna@gmail.com",
